@@ -20,6 +20,9 @@ void    pb(t_stack *a, t_stack *b);
 void    sa(t_stack *a);
 void    sb(t_stack *b);
 void    ss(t_stack *a, t_stack *b);
+void	ra(t_stack *a);
+void	rb(t_stack *b);
+void	rr(t_stack *a, t_stack *b);
 
 typedef struct s_node
 {
