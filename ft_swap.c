@@ -10,3 +10,38 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
+
+void    sa(t_stack *a)
+{
+    t_node  *first;
+    t_node  *second;
+
+    if (!a->top || !a->top->next)
+        return ;
+    first = a->top;
+    second = a->top->next;
+    first->next = second->next;
+    second->next = first;
+    a->top = second;
+}
+
+void    sb(t_stack *b)
+{
+    t_node  *first;
+    t_node  *second;
+
+    if (!b->top || !b->top->next)
+        return ;
+    first = b->top;
+    second = b->top->next;
+    first->next = second->next;
+    second->next = first;
+    b->top = second;
+}
+
+void    ss(t_stack *a, t_stack *b)
+{
+    sa(a);
+    sb(b);
+}
