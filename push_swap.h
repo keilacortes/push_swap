@@ -15,6 +15,9 @@
 # include "./libft/libft.h"
 # include <stdlib.h>
 
+void    pa(t_stack *a, t_stack *b);
+void    pb(t_stack *a, t_stack *b);
+
 typedef struct s_node
 {
 	int				value;
