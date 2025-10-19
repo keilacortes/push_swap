@@ -21,6 +21,7 @@ void    pa(t_stack *a, t_stack *b)
     b->top = b->top->next;
     tmp->next = a->top;
     a->top = tmp;
+    a->size++;
 }
 
 void    pb(t_stack *a, t_stack *b)
@@ -32,4 +33,5 @@ void    pb(t_stack *a, t_stack *b)
     a->top = a->top->next;
     tmp->next = b->top;
     b->top = tmp;
+    b->size++;
 }
