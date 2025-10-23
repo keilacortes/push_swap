@@ -15,6 +15,18 @@
 # include "./libft/libft.h"
 # include <stdlib.h>
 
+typedef struct s_node
+{
+	int				value;
+	struct s_node	*next;
+}	t_node;
+
+typedef struct s_stack
+{
+	t_node	*top;
+	int		size;
+}	t_stack;
+
 void    pa(t_stack *a, t_stack *b);
 void    pb(t_stack *a, t_stack *b);
 void    sa(t_stack *a);
@@ -26,17 +38,5 @@ void	rr(t_stack *a, t_stack *b);
 void	rra(t_stack *a);
 void	rrb(t_stack *b);
 void	rrr(t_stack *a, t_stack *b);
-
-typedef struct s_node
-{
-	int				value;
-	struct s_list	*next;
-}	t_node;
-
-typedef struct s_stack
-{
-	t_node	*top;
-	int		size;
-}	t_stack;
 
 #endif

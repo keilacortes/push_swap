@@ -28,7 +28,6 @@ static int	ft_puthex_ptr_fd(uintptr_t n, char format, int fd)
 int	ft_putptr_fd(void *ptr, int fd)
 {
 	int			count;
-	uintptr_t	addr;
 
 	if (fd < 0)
 		return (0);
@@ -37,7 +36,6 @@ int	ft_putptr_fd(void *ptr, int fd)
 		ft_putstr_fd("(nil)", fd);
 		return (5);
 	}
-	addr = (uintptr_t)ptr;
 	count = 2;
 	ft_putstr_fd("0x", fd);
 	count += ft_puthex_ptr_fd((unsigned long)ptr, 'x', fd);

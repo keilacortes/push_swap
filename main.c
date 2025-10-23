@@ -49,6 +49,23 @@ static void free_split(char **split)
 	free(split);
 }
 
+static void	free_stack(t_stack *stack)
+{
+	t_node	*current;
+	t_node	*next;
+
+	if (!stack)
+		return;
+	current = stack->top;
+	while (current)
+	{
+		next = current->next;
+		free(current);
+		current = next;
+	}
+	free(stack);
+}
+
 static void	stack_a_one_arg(char *arg, t_stack *stack_a)
 {
 	int		count;

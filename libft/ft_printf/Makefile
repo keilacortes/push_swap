@@ -13,7 +13,7 @@ SRC = ft_printf.c\
 OBJ = $(SRC:.c=.o)
 
 %.o: %.c
-	$(CC) $(FLAGS) -c $< -o $@
+	@$(CC) $(FLAGS) -c $< -o $@
 
 all: $(NAME)
 
@@ -21,10 +21,10 @@ $(NAME): $(OBJ)
 	ar rcs $@ $^
 
 clean:
-	rm -f $(OBJ)
+	@rm -f $(OBJ)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
 

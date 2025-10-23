@@ -12,6 +12,7 @@
 
 NAME = libft.a
 HDRS = libft.h
+
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
@@ -45,11 +46,15 @@ SRCS = ft_isalpha.c\
        ft_itoa.c\
        ft_strmapi.c\
        ft_striteri.c\
-       ft_putchar_fd.c\
-       ft_putstr_fd.c\
-       ft_putendl_fd.c\
-       ft_putnbr_fd.c
+       ft_putendl_fd.c
 
+PRINTF_SRC = ./ft_printf/ft_printf.c \
+             ./ft_printf/ft_putchar_fd.c \
+             ./ft_printf/ft_puthex_fd.c\
+             ./ft_printf/ft_putnbr_fd.c\
+             ./ft_printf/ft_putptr_fd.c\
+             ./ft_printf/ft_putstr_fd.c\
+             ./ft_printf/ft_putunsigned_fd.c
 SRCS_BONUS = ft_lstsize_bonus.c\
              ft_lstnew_bonus.c\
              ft_lstadd_front_bonus.c\
@@ -60,11 +65,11 @@ SRCS_BONUS = ft_lstsize_bonus.c\
              ft_lstiter_bonus.c\
              ft_lstmap_bonus.c
 
-OBJS = $(SRCS:.c=.o)
+OBJS = $(SRCS:.c=.o) $(PRINTF_SRC:.c=.o)
 OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -I $(HDRS) -c $< -o $@
+	@$(CC) $(CFLAGS) -I . -c $< -o $@
 
 all: $(NAME)
 
@@ -75,10 +80,10 @@ bonus:
 	@$(MAKE) OBJS="$(OBJS) $(OBJS_BONUS)"
 
 clean:
-	rm -f $(OBJS) $(OBJS_BONUS)
+	@rm -f $(OBJS) $(OBJS_BONUS)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
 
