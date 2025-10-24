@@ -66,37 +66,27 @@ static void	free_stack(t_stack *stack)
 	free(stack);
 }
 
-static void	stack_a_one_arg(char *arg, t_stack *stack_a)
+static char	**split_one_arg(char *arg)
 {
-	int		count;
 	char	**numbers;
-	t_node	*new_node;
 
 	numbers = ft_split(arg, ' ');
-	count = 0;
-	while (numbers[count])
-		count++;
-	count -= 1;
-	while (count >= 0)
-	{
-		new_node = create_node(ft_atoi(numbers[count]));
-		new_node->next = stack_a->top;
-		stack_a->top = new_node;
-		stack_a->size++;
-		count--;
-	}
-	free_split(numbers);
+	return (numbers);
 }
 
-static void	stack_a_mult_args(int argc, char **argv, t_stack *stack_a)
+static void	stack_a_args(char **args, t_stack *stack_a)
 {
 	int		i;
+	int		count;
 	t_node	*new_node;
 
-	i = argc - 1;
-	while (i >= 1)
+	count = 0;
+	while (args[count])
+		count++;
+	i = count - 1;
+	while (i >= 0)
 	{
-		new_node = create_node(ft_atoi(argv[i]));
+		new_node = create_node(ft_atoi(args[i]));
 		new_node->next = stack_a->top;
 		stack_a->top = new_node;
 		stack_a->size++;
@@ -104,6 +94,7 @@ static void	stack_a_mult_args(int argc, char **argv, t_stack *stack_a)
 	}
 }
 
+//remover
 void print_stack(t_stack *stack, char name)
 {
     t_node *current;
@@ -123,24 +114,55 @@ void print_stack(t_stack *stack, char name)
     ft_printf("(size: %d)\n", stack->size);
 }
 
+static char	**prepare_args(int argc, char **argv, int *need_free)
+{
+	char	**args;
+
+	*need_free = 0;
+	if (argc == 2)
+	{
+		args = split_one_arg(argv[1]);
+		*need_free = 1;
+	}
+	else
+		args = &argv[1];
+	return (args);
+}
+
+static int	validate_and_check(char **args, int need_free)
+{
+	if (!validate_args(args))
+	{
+		ft_printf("Error\n");
+		if (need_free)
+			free_split(args);
+		return (0);
+	}
+	return (1);
+}
+
 int	main(int argc, char **argv)
 {
+	int		need_free;
 	t_stack	*stack_a;
 	t_stack	*stack_b;
+	char	**args;
 
 	if (argc < 2)
 		return (0);
+	args = prepare_args(argc, argv, &need_free);
+	if (!validate_and_check(args, need_free))
+		return (1);
 	stack_a = init_stack();
 	stack_b = init_stack();
-	if (!stack_a || !stack_b)
-		return (1);
-	if (argc == 2)
-		stack_a_one_arg(argv[1], stack_a);
-	else if (argc > 2)
-		stack_a_mult_args(argc, argv, stack_a);
+	stack_a_args(args, stack_a);
 	print_stack(stack_a, 'A');
 	print_stack(stack_b, 'B');
 	free_stack(stack_a);
 	free_stack(stack_b);
+	if (need_free)
+		free_split(args);
 	return (0);
 }
+
+//mover funções
