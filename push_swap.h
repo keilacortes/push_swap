@@ -40,5 +40,10 @@ void	rra(t_stack *a);
 void	rrb(t_stack *b);
 void	rrr(t_stack *a, t_stack *b);
 int		validate_args(char **args);
+void    sort_stack(t_stack *a, t_stack *b);
+void    sort_two(t_stack *a);
+void    sort_three(t_stack *a);
+void    sort_four(t_stack *a, t_stack *b);
+void    sort_five(t_stack *a, t_stack *b);
 
 #endif

@@ -22,7 +22,8 @@ SRCS = main.c \
 	   ft_swap.c \
 	   ft_rotate.c \
 	   ft_reverse_rotate.c \
-	   validate.c
+	   validate.c \
+	   sort.c
 
 OBJS = $(SRCS:.c=.o)
 

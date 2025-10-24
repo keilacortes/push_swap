@@ -24,6 +24,7 @@ void    sa(t_stack *a)
     first->next = second->next;
     second->next = first;
     a->top = second;
+    ft_printf("sa\n");
 }
 
 void    sb(t_stack *b)
@@ -38,10 +39,12 @@ void    sb(t_stack *b)
     first->next = second->next;
     second->next = first;
     b->top = second;
+    ft_printf("sb\n");
 }
 
 void    ss(t_stack *a, t_stack *b)
 {
     sa(a);
     sb(b);
+    ft_printf("ss\n");
 }

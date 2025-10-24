@@ -158,6 +158,9 @@ int	main(int argc, char **argv)
 	stack_a_args(args, stack_a);
 	print_stack(stack_a, 'A');
 	print_stack(stack_b, 'B');
+	sort_stack(stack_a, stack_b);
+	print_stack(stack_a, 'A');
+	print_stack(stack_b, 'B');
 	free_stack(stack_a);
 	free_stack(stack_b);
 	if (need_free)
@@ -166,4 +169,4 @@ int	main(int argc, char **argv)
 }
 
 //mover funções
-//header no validate e atol
+//header no validate; atol; sort;
