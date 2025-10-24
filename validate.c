@@ -2,6 +2,13 @@
 
 #include "push_swap.h"
 
+int is_int(long num)
+{
+    if (num < INT_MIN || num > INT_MAX)
+        return (0);
+    return (1);
+}
+
 int is_valid_number(char *str)
 {
     int i;
@@ -24,19 +31,19 @@ int is_valid_number(char *str)
 
 int has_duplicate(char **args)
 {
-    int i;
-    int j;
-    int num_i;
-    int num_j;
+    int     i;
+    int     j;
+    long    num_i;
+    long    num_j;
 
     i = 0;
     while (args[i])
     {
-        num_i = ft_atoi(args[i]);
+        num_i = ft_atol(args[i]);
         j = i + 1;
         while (args[j])
         {
-            num_j = ft_atoi(args[j]);
+            num_j = ft_atol(args[j]);
             if (num_i == num_j)
                 return (1);
             j++;
@@ -53,7 +60,7 @@ int validate_args(char **args)
     i = 0;
     while (args[i])
     {
-        if(!is_valid_number(args[i]))
+        if(!is_valid_number(args[i]) || !is_int(ft_atol(args[i])))
             return (0);
         i++;
     }

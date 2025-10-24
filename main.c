@@ -165,8 +165,5 @@ int	main(int argc, char **argv)
 	return (0);
 }
 
-<<<<<<< HEAD
 //mover funções
-=======
-//mover funções
->>>>>>> b4d37ea8f28f46ad50a010d0c66d21892dad3dc9
+//header no validate e atol
