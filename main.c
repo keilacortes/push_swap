@@ -94,26 +94,6 @@ static void	stack_a_args(char **args, t_stack *stack_a)
 	}
 }
 
-//remover
-void print_stack(t_stack *stack, char name)
-{
-    t_node *current;
-
-    if (!stack || !stack->top)
-    {
-        ft_printf("Stack %c: (empty)\n", name);
-        return;
-    }
-    ft_printf("Stack %c: ", name);
-    current = stack->top;
-    while (current)
-    {
-        ft_printf("%d ", current->value);
-        current = current->next;
-    }
-    ft_printf("(size: %d)\n", stack->size);
-}
-
 static char	**prepare_args(int argc, char **argv, int *need_free)
 {
 	char	**args;
@@ -141,6 +121,20 @@ static int	validate_and_check(char **args, int need_free)
 	return (1);
 }
 
+static int	is_sorted(char **args)
+{
+	int	i;
+
+	i = 0;
+	while (args[i + 1])
+	{
+		if (ft_atoi(args[i]) > ft_atoi(args[i + 1]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
 int	main(int argc, char **argv)
 {
 	int		need_free;
@@ -151,6 +145,12 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (0);
 	args = prepare_args(argc, argv, &need_free);
+	if (is_sorted(args))
+	{
+		if (need_free)
+			free_split(args);
+		return (0);
+	}
 	if (!validate_and_check(args, need_free))
 		return (1);
 	stack_a = init_stack();
@@ -169,4 +169,4 @@ int	main(int argc, char **argv)
 }
 
 //mover funções
-//header no validate; atol; sort;
+//header no validate; atol; sort; radix_sort;
