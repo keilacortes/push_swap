@@ -138,4 +138,6 @@ void    sort_stack(t_stack *a, t_stack *b)
         sort_four(a, b);
     else if (size == 5)
         sort_five(a, b);
+    else
+        radix_sort(a, b);
 }
