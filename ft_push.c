@@ -22,6 +22,7 @@ void    pa(t_stack *a, t_stack *b)
     tmp->next = a->top;
     a->top = tmp;
     a->size++;
+    b->size--;
     ft_printf("pa\n");
 }
 
@@ -35,5 +36,6 @@ void    pb(t_stack *a, t_stack *b)
     tmp->next = b->top;
     b->top = tmp;
     b->size++;
+    a->size--;
     ft_printf("pb\n");
 }
