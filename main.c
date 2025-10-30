@@ -12,68 +12,6 @@
 
 #include "push_swap.h"
 
-static t_node	*create_node(int value)
-{
-	t_node	*new_node;
-
-	new_node = malloc(sizeof(t_node));
-	if (!new_node)
-		return (NULL);
-	new_node->value = value;
-	new_node->next = NULL;
-	return (new_node);
-}
-
-static t_stack	*init_stack(void)
-{
-	t_stack	*stack;
-
-	stack = malloc(sizeof(t_stack));
-	if (!stack)
-		return (NULL);
-	stack->top = NULL;
-	stack->size = 0;
-	return (stack);
-}
-
-static void free_split(char **split)
-{
-	int	i;
-
-	i = 0;
-	while (split[i])
-	{
-		free(split[i]);
-		i++;
-	}
-	free(split);
-}
-
-static void	free_stack(t_stack *stack)
-{
-	t_node	*current;
-	t_node	*next;
-
-	if (!stack)
-		return;
-	current = stack->top;
-	while (current)
-	{
-		next = current->next;
-		free(current);
-		current = next;
-	}
-	free(stack);
-}
-
-static char	**split_one_arg(char *arg)
-{
-	char	**numbers;
-
-	numbers = ft_split(arg, ' ');
-	return (numbers);
-}
-
 static void	stack_a_args(char **args, t_stack *stack_a)
 {
 	int		i;
@@ -101,7 +39,7 @@ static char	**prepare_args(int argc, char **argv, int *need_free)
 	*need_free = 0;
 	if (argc == 2)
 	{
-		args = split_one_arg(argv[1]);
+		args = ft_split(argv[1], ' ');
 		*need_free = 1;
 	}
 	else
@@ -140,33 +78,27 @@ int	main(int argc, char **argv)
 	int		need_free;
 	t_stack	*stack_a;
 	t_stack	*stack_b;
-	char	**args;
 
 	if (argc < 2)
 		return (0);
-	args = prepare_args(argc, argv, &need_free);
-	if (is_sorted(args))
+	argv = prepare_args(argc, argv, &need_free);
+	if (is_sorted(argv))
 	{
 		if (need_free)
-			free_split(args);
+			free_split(argv);
 		return (0);
 	}
-	if (!validate_and_check(args, need_free))
+	if (!validate_and_check(argv, need_free))
 		return (1);
 	stack_a = init_stack();
 	stack_b = init_stack();
-	stack_a_args(args, stack_a);
-	print_stack(stack_a, 'A');
-	print_stack(stack_b, 'B');
+	stack_a_args(argv, stack_a);
 	sort_stack(stack_a, stack_b);
-	print_stack(stack_a, 'A');
-	print_stack(stack_b, 'B');
-	free_stack(stack_a);
-	free_stack(stack_b);
+	free_stacks(stack_a, stack_b);
 	if (need_free)
-		free_split(args);
+		free_split(argv);
 	return (0);
 }
 
-//mover funções
-//header no validate; atol; sort; radix_sort;
+//header no validate; atol; sort; radix_sort; utils
+//checar norminette
