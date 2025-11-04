@@ -6,7 +6,7 @@
 /*   By: kqueiroz <kqueiroz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 14:50:44 by kqueiroz          #+#    #+#             */
-/*   Updated: 2025/11/04 15:35:51 by kqueiroz         ###   ########.fr       */
+/*   Updated: 2025/11/04 18:37:15 by kqueiroz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,14 +82,14 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (0);
 	argv = prepare_args(argc, argv, &need_free);
+	if (!validate_and_check(argv, need_free))
+		return (1);
 	if (is_sorted(argv))
 	{
 		if (need_free)
 			free_split(argv);
 		return (0);
 	}
-	if (!validate_and_check(argv, need_free))
-		return (1);
 	stack_a = init_stack();
 	stack_b = init_stack();
 	stack_a_args(argv, stack_a);

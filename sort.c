@@ -6,27 +6,11 @@
 /*   By: kqueiroz <kqueiroz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 15:26:34 by kqueiroz          #+#    #+#             */
-/*   Updated: 2025/11/04 15:30:52 by kqueiroz         ###   ########.fr       */
+/*   Updated: 2025/11/04 18:23:48 by kqueiroz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	min_value(t_stack *stack)
-{
-	t_node	*current;
-	int		min;
-
-	current = stack->top;
-	min = current->value;
-	while (current)
-	{
-		if (current->value < min)
-			min = current->value;
-		current = current->next;
-	}
-	return (min);
-}
 
 int	min_position(t_stack *stack)
 {

@@ -6,7 +6,7 @@
 #    By: kqueiroz <kqueiroz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/13 14:50:40 by kqueiroz          #+#    #+#              #
-#    Updated: 2025/10/15 15:29:47 by kqueiroz         ###   ########.fr        #
+#    Updated: 2025/11/04 15:45:25 by kqueiroz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,9 @@ SRCS = main.c \
 	   ft_reverse_rotate.c \
 	   validate.c \
 	   sort.c \
-	   radix_sort.c
+	   radix_sort.c \
+	   sort_small.c \
+	   utils.c
 
 OBJS = $(SRCS:.c=.o)
 
