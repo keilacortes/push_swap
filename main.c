@@ -6,7 +6,7 @@
 /*   By: kqueiroz <kqueiroz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 14:50:44 by kqueiroz          #+#    #+#             */
-/*   Updated: 2025/10/15 16:03:30 by kqueiroz         ###   ########.fr       */
+/*   Updated: 2025/11/04 15:35:51 by kqueiroz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,3 @@ int	main(int argc, char **argv)
 		free_split(argv);
 	return (0);
 }
-
-//header no validate; atol; sort; radix_sort; utils
-//checar norminette

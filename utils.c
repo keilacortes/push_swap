@@ -1,7 +1,16 @@
-// header
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kqueiroz <kqueiroz@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/04 15:25:31 by kqueiroz          #+#    #+#             */
+/*   Updated: 2025/11/04 15:26:22 by kqueiroz         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 static t_node	*create_node(int value)
 {
@@ -27,7 +36,7 @@ static t_stack	*init_stack(void)
 	return (stack);
 }
 
-static void free_split(char **split)
+static void	free_split(char **split)
 {
 	int	i;
 
@@ -46,7 +55,7 @@ static void	free_stacks(t_stack *a, t_stack *b)
 	t_node	*next;
 
 	if (!a || !b)
-		return;
+		return ;
 	current = a->top;
 	while (current)
 	{

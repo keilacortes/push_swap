@@ -6,7 +6,7 @@
 /*   By: kqueiroz <kqueiroz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 13:07:41 by kqueiroz          #+#    #+#             */
-/*   Updated: 2025/10/15 16:00:19 by kqueiroz         ###   ########.fr       */
+/*   Updated: 2025/11/04 15:35:01 by kqueiroz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ typedef struct s_stack
 	int		size;
 }	t_stack;
 
-void    pa(t_stack *a, t_stack *b);
-void    pb(t_stack *a, t_stack *b);
-void    sa(t_stack *a);
-void    sb(t_stack *b);
-void    ss(t_stack *a, t_stack *b);
+void	pa(t_stack *a, t_stack *b);
+void	pb(t_stack *a, t_stack *b);
+void	sa(t_stack *a);
+void	sb(t_stack *b);
+void	ss(t_stack *a, t_stack *b);
 void	ra(t_stack *a);
 void	rb(t_stack *b);
 void	rr(t_stack *a, t_stack *b);
@@ -45,11 +45,11 @@ t_stack	*init_stack(void);
 void	free_split(char **split);
 void	free_stacks(t_stack *a, t_stack *b);
 int		validate_args(char **args);
-void    sort_stack(t_stack *a, t_stack *b);
-void    sort_two(t_stack *a);
-void    sort_three(t_stack *a);
-void    sort_four(t_stack *a, t_stack *b);
-void    sort_five(t_stack *a, t_stack *b);
-void    radix_sort(t_stack *a, t_stack *b);
+void	sort_stack(t_stack *a, t_stack *b);
+void	sort_two(t_stack *a);
+void	sort_three(t_stack *a);
+void	sort_four(t_stack *a, t_stack *b);
+void	sort_five(t_stack *a, t_stack *b);
+void	radix_sort(t_stack *a, t_stack *b);
 
 #endif
