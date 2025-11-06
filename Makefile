@@ -43,11 +43,11 @@ $(LIBFT):
 
 $(NAME): $(OBJS) $(LIBFT)
 	@echo "$(PURPLE)Compiling $(NAME)...$(RESET)"
-	$(CC) $(CFLAGS) $(OBJS) -L $(LIBFT_DIR) -lft -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJS) -L $(LIBFT_DIR) -lft -o $(NAME)
 	@echo "$(CYAN)$(NAME) compiled successfully!$(RESET)"
 
 %.o: %.c push_swap.h
-	$(CC) $(CFLAGS) -I$(LIBFT_DIR) -c $< -o $@
+	@$(CC) $(CFLAGS) -I$(LIBFT_DIR) -c $< -o $@
 
 clean:
 	@echo "$(GREEN)Cleaning object files...$(RESET)"
